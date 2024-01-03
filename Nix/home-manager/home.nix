@@ -46,6 +46,7 @@
     neovim
     vial
     flameshot
+    # keepassxc
 
     # --- nerdfonts ---
     (nerdfonts.override { fonts = [ "Meslo" ]; })
