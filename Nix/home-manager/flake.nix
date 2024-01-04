@@ -40,7 +40,7 @@
   #       };
 
     in {
-      homeConfigurations."pl" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."pfox" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         # pass extra args to home manager
 #         extraSpecialArgs = {
