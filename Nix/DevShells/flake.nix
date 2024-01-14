@@ -35,7 +35,7 @@
           shells = import ./shells.nix { inherit pkgs; inherit pkgs-dep; };
         in
         {
-          inherit (shells) default node14;
+          inherit (shells) default node14 node18;
         }
       );
     };
