@@ -152,6 +152,12 @@
       ];
     };
 
+    shellAliases = {
+        "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command zsh";
+        "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command zsh";
+        "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command zsh";
+    };
+
     initExtra = ''
       POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
       source ~/Documents/System/zsh/p10k.zsh
