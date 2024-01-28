@@ -40,6 +40,8 @@
   #       };
 
     in {
+      home-manager.useUserPackages = true;
+      home-manager.useGlobalPkgs = true;
       homeConfigurations."pfox" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         # pass extra args to home manager
