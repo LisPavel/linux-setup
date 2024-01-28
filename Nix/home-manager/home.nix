@@ -156,6 +156,8 @@
         "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command zsh";
         "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command zsh";
         "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command zsh";
+        "protontricks" = "flatpak run com.github.Matoking.protontricks";
+        "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
     };
 
     initExtra = ''
