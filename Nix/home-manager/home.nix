@@ -49,7 +49,7 @@
     keepassxc
 
     # --- nerdfonts ---
-    (nerdfonts.override { fonts = [ "Meslo" ]; })
+    (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; })
     # === nerdfonts ===
 
     # --- lazyvim ---
