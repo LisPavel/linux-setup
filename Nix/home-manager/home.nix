@@ -167,5 +167,17 @@
   };
   # === ZSH ===
 
+  # --- FISH ---
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+        "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command fish";
+        "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command fish";
+        "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command fish";
+        "protontricks" = "flatpak run com.github.Matoking.protontricks";
+        "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
+    };
+  };
+  # === FISH ===
   services.ssh-agent.enable = true;
 }
