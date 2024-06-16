@@ -40,13 +40,16 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    brave
+    # brave
     obsidian
     vscodium
     neovim
     vial
     flameshot
     keepassxc
+    # docker
+    # vivaldi
+    fastfetch
 
     # --- nerdfonts ---
     (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; })
@@ -114,57 +117,57 @@
   # === git ===
 
   # --- ZSH ---
-  programs.zsh = {
-    enable = true;
+#  programs.zsh = {
+#    enable = true;
 
-    enableAutosuggestions = true;
-    enableCompletion = true;
-    syntaxHighlighting = { enable = true; };
+#    enableAutosuggestions = true;
+#    enableCompletion = true;
+#    syntaxHighlighting = { enable = true; };
 
     # needed for powerlevel10k theme
-    initExtraBeforeCompInit = ''
-      # p10k instant prompt
-      local P10K_INSTANT_PROMPT="${config.xdg.cacheHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
-    '';
+#    initExtraBeforeCompInit = ''
+#      # p10k instant prompt
+#      local P10K_INSTANT_PROMPT="${config.xdg.cacheHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
+#      [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
+#    '';
 
-    plugins = with pkgs; [
-      {
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        name = "powerlevel10k";
-        src = zsh-powerlevel10k;
-      }
+#    plugins = with pkgs; [
+#      {
+#        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+#        name = "powerlevel10k";
+#        src = zsh-powerlevel10k;
+#      }
 #       {
 #         file = "p10k.zsh";
 #         name = "powerlevel10k-config";
 #         src = "$HOME/Documents/System/zsh"; # Some directory containing your p10k.zsh file
 #       }
-    ];
+#    ];
 
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "command-not-found"
-        "git"
-        "history"
-        "sudo"
-        "nvm"
-      ];
-    };
+#    oh-my-zsh = {
+#      enable = true;
+#       plugins = [
+#        "command-not-found"
+#        "git"
+#        "history"
+#        "sudo"
+#        "nvm"
+#      ];
+#    };
 
-    shellAliases = {
-        "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command zsh";
-        "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command zsh";
-        "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command zsh";
-        "protontricks" = "flatpak run com.github.Matoking.protontricks";
-        "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
-    };
+#    shellAliases = {
+#        "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command zsh";
+#        "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command zsh";
+#        "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command zsh";
+#        "protontricks" = "flatpak run com.github.Matoking.protontricks";
+#        "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
+#    };
 
-    initExtra = ''
-      POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-      source ~/Documents/System/zsh/p10k.zsh
-    '';
-  };
+#    initExtra = ''
+#      POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+#      source ~/Documents/System/zsh/p10k.zsh
+#    '';
+#  };
   # === ZSH ===
 
   # --- FISH ---
@@ -172,8 +175,11 @@
     enable = true;
     shellAliases = {
         "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command fish";
+        "use-ostree-node-shell" = "nix develop /var/home/pl/Documents/System/Nix/DevShells --command fish";
         "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command fish";
+        "use-ostree-node18-shell" = "nix develop /var/home/pl/Documents/System/Nix/DevShells#node18 --command fish";
         "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command fish";
+        "use-ostree-node14-shell" = "nix develop /var/home/pl/Documents/System/Nix/DevShells#node14 --command fish";
         "protontricks" = "flatpak run com.github.Matoking.protontricks";
         "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
     };
