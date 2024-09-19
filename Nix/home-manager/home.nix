@@ -184,7 +184,27 @@
         "protontricks" = "flatpak run com.github.Matoking.protontricks";
         "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
     };
+    functions = {
+      yy = {
+        body = ''
+          set tmp (mktemp -t "yazi-cwd.XXXXXX")
+          yazi $argv --cwd-file="$tmp"
+          if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+            builtin cd -- "$cwd"
+          end
+          rm -f -- "$tmp"
+        '';
+      };
+    };
   };
   # === FISH ===
+  
+  # --- yazi ---
+  programs.yazi = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+  # === yasi ===
+  
   services.ssh-agent.enable = true;
 }
