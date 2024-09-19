@@ -47,6 +47,7 @@
     vial
     flameshot
     keepassxc
+    # zed-editor
     # docker
     # vivaldi
     fastfetch
