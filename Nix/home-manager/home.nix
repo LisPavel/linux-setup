@@ -53,7 +53,9 @@
     fastfetch
 
     # --- nerdfonts ---
-    (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; })
+    # (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; })
+    nerd-fonts.fira-code
+    nerd-fonts.meslo-lg
     # === nerdfonts ===
 
     # --- lazyvim ---
