@@ -64,6 +64,10 @@
     ripgrep
     fd
     tree-sitter
+    fzf
+    viu
+    chafa
+    ueberzugpp
     # === lazyvim ===
   ];
 
@@ -185,18 +189,21 @@
         "use-ostree-node14-shell" = "nix develop /var/home/pl/Documents/System/Nix/DevShells#node14 --command fish";
         "protontricks" = "flatpak run com.github.Matoking.protontricks";
         "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
+        "hm-switch" = "home-manager switch --flake ~/Documents/System/Nix/home-manager";
+	"hm-update" = "nix flake update --flake ~/Documents/System/Nix/home-manager/";
+	"hm-upgrade" = "hm-update && hm-switch";
     };
     functions = {
-      yy = {
-        body = ''
-          set tmp (mktemp -t "yazi-cwd.XXXXXX")
-          yazi $argv --cwd-file="$tmp"
-          if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-            builtin cd -- "$cwd"
-          end
-          rm -f -- "$tmp"
-        '';
-      };
+      # yy = {
+      #   body = ''
+      #     set tmp (mktemp -t "yazi-cwd.XXXXXX")
+      #     yazi $argv --cwd-file="$tmp"
+      #     if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+      #       builtin cd -- "$cwd"
+      #     end
+      #     rm -f -- "$tmp"
+      #   '';
+      # };
     };
   };
   # === FISH ===
