@@ -192,6 +192,7 @@
         "hm-switch" = "home-manager switch --flake ~/Documents/System/Nix/home-manager";
         "hm-update" = "nix flake update --flake ~/Documents/System/Nix/home-manager/";
         "hm-upgrade" = "hm-update && hm-switch";
+        "hm-cleanup" = "home-manager expire-generations \"-15days\" && nix-collect-garbage --delete-older-than 15d";
     };
     functions = {
       # yy = {
