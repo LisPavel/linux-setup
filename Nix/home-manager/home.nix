@@ -190,8 +190,8 @@
         "protontricks" = "flatpak run com.github.Matoking.protontricks";
         "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
         "hm-switch" = "home-manager switch --flake ~/Documents/System/Nix/home-manager";
-	"hm-update" = "nix flake update --flake ~/Documents/System/Nix/home-manager/";
-	"hm-upgrade" = "hm-update && hm-switch";
+        "hm-update" = "nix flake update --flake ~/Documents/System/Nix/home-manager/";
+        "hm-upgrade" = "hm-update && hm-switch";
     };
     functions = {
       # yy = {
