@@ -40,11 +40,10 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    # brave
     obsidian
     vscodium
     neovim
-    vial
+    # vial
     flameshot
     keepassxc
     # zed-editor
