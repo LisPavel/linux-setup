@@ -48,7 +48,7 @@
     keepassxc
     # zed-editor
     # docker
-    # vivaldi
+    vivaldi
     fastfetch
 
     # --- nerdfonts ---
@@ -192,6 +192,7 @@
         "hm-update" = "nix flake update --flake ~/Documents/System/Nix/home-manager/";
         "hm-upgrade" = "hm-update && hm-switch";
         "hm-cleanup" = "home-manager expire-generations \"-15days\" && nix-collect-garbage --delete-older-than 15d";
+        "sys-backup" = "snapper -c root create -t single -d \"before upgrade\"";
     };
     functions = {
       # yy = {
