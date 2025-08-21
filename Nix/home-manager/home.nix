@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [ ./modules/index.nix ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "pl";
@@ -16,7 +17,7 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   # Allow unfree packages
-#   nixpkgs.config.allowUnfree = true;
+  #   nixpkgs.config.allowUnfree = true;
 
   # Enable fonts
   fonts.fontconfig.enable = true;
@@ -119,90 +120,94 @@
     userName = "Pavel Lisitsyn";
     userEmail = "43790794+LisPavel@users.noreply.github.com";
     extraConfig = {
-      core = {
-        editor = "codium --wait";
-      };
-      init = {
-        defaultBranch = "main";
-      };
-      push = {
-        autoSetupRemote = true;
-      };
+      core = { editor = "codium --wait"; };
+      init = { defaultBranch = "main"; };
+      push = { autoSetupRemote = true; };
     };
   };
   # === git ===
 
   # --- ZSH ---
-#  programs.zsh = {
-#    enable = true;
+  #  programs.zsh = {
+  #    enable = true;
 
-#    enableAutosuggestions = true;
-#    enableCompletion = true;
-#    syntaxHighlighting = { enable = true; };
+  #    enableAutosuggestions = true;
+  #    enableCompletion = true;
+  #    syntaxHighlighting = { enable = true; };
 
-    # needed for powerlevel10k theme
-#    initExtraBeforeCompInit = ''
-#      # p10k instant prompt
-#      local P10K_INSTANT_PROMPT="${config.xdg.cacheHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
-#      [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
-#    '';
+  # needed for powerlevel10k theme
+  #    initExtraBeforeCompInit = ''
+  #      # p10k instant prompt
+  #      local P10K_INSTANT_PROMPT="${config.xdg.cacheHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
+  #      [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
+  #    '';
 
-#    plugins = with pkgs; [
-#      {
-#        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-#        name = "powerlevel10k";
-#        src = zsh-powerlevel10k;
-#      }
-#       {
-#         file = "p10k.zsh";
-#         name = "powerlevel10k-config";
-#         src = "$HOME/Documents/System/zsh"; # Some directory containing your p10k.zsh file
-#       }
-#    ];
+  #    plugins = with pkgs; [
+  #      {
+  #        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+  #        name = "powerlevel10k";
+  #        src = zsh-powerlevel10k;
+  #      }
+  #       {
+  #         file = "p10k.zsh";
+  #         name = "powerlevel10k-config";
+  #         src = "$HOME/Documents/System/zsh"; # Some directory containing your p10k.zsh file
+  #       }
+  #    ];
 
-#    oh-my-zsh = {
-#      enable = true;
-#       plugins = [
-#        "command-not-found"
-#        "git"
-#        "history"
-#        "sudo"
-#        "nvm"
-#      ];
-#    };
+  #    oh-my-zsh = {
+  #      enable = true;
+  #       plugins = [
+  #        "command-not-found"
+  #        "git"
+  #        "history"
+  #        "sudo"
+  #        "nvm"
+  #      ];
+  #    };
 
-#    shellAliases = {
-#        "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command zsh";
-#        "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command zsh";
-#        "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command zsh";
-#        "protontricks" = "flatpak run com.github.Matoking.protontricks";
-#        "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
-#    };
+  #    shellAliases = {
+  #        "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command zsh";
+  #        "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command zsh";
+  #        "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command zsh";
+  #        "protontricks" = "flatpak run com.github.Matoking.protontricks";
+  #        "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
+  #    };
 
-#    initExtra = ''
-#      POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-#      source ~/Documents/System/zsh/p10k.zsh
-#    '';
-#  };
+  #    initExtra = ''
+  #      POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+  #      source ~/Documents/System/zsh/p10k.zsh
+  #    '';
+  #  };
   # === ZSH ===
 
   # --- FISH ---
   programs.fish = {
     enable = true;
     shellAliases = {
-        "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command fish";
-        "use-ostree-node-shell" = "nix develop /var/home/pl/Documents/System/Nix/DevShells --command fish";
-        "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command fish";
-        "use-ostree-node18-shell" = "nix develop /var/home/pl/Documents/System/Nix/DevShells#node18 --command fish";
-        "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command fish";
-        "use-ostree-node14-shell" = "nix develop /var/home/pl/Documents/System/Nix/DevShells#node14 --command fish";
-        "protontricks" = "flatpak run com.github.Matoking.protontricks";
-        "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
-        "hm-switch" = "home-manager switch --flake ~/Documents/System/Nix/home-manager";
-        "hm-update" = "nix flake update --flake ~/Documents/System/Nix/home-manager/";
-        "hm-upgrade" = "hm-update && hm-switch";
-        "hm-cleanup" = "home-manager expire-generations \"-15days\" && nix-collect-garbage --delete-older-than 15d";
-        "sys-backup" = "snapper -c root create -t single -d \"before upgrade\"";
+      "use-node-shell" =
+        "nix develop ~/Documents/System/Nix/DevShells --command fish";
+      "use-ostree-node-shell" =
+        "nix develop /var/home/pl/Documents/System/Nix/DevShells --command fish";
+      "use-node18-shell" =
+        "nix develop ~/Documents/System/Nix/DevShells#node18 --command fish";
+      "use-ostree-node18-shell" =
+        "nix develop /var/home/pl/Documents/System/Nix/DevShells#node18 --command fish";
+      "use-node14-shell" =
+        "nix develop ~/Documents/System/Nix/DevShells#node14 --command fish";
+      "use-ostree-node14-shell" =
+        "nix develop /var/home/pl/Documents/System/Nix/DevShells#node14 --command fish";
+      "protontricks" = "flatpak run com.github.Matoking.protontricks";
+      "protontricks-launch" =
+        "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
+      "hm-switch" =
+        "home-manager switch --flake ~/Documents/System/Nix/home-manager";
+      "hm-update" =
+        "nix flake update --flake ~/Documents/System/Nix/home-manager/";
+      "hm-upgrade" = "hm-update && hm-switch";
+      "hm-cleanup" = ''
+        home-manager expire-generations "-15days" && nix-collect-garbage --delete-older-than 15d'';
+      "sys-backup" = ''snapper -c root create -t single -d "before upgrade"'';
     };
     functions = {
       # yy = {
@@ -218,17 +223,22 @@
     };
   };
   # === FISH ===
-  
+
   # --- yazi ---
   programs.yazi = {
     enable = true;
-    package = pkgs.yazi.override {
-      _7zz = (pkgs._7zz.override { useUasm = true; });
-    };
+    package =
+      pkgs.yazi.override { _7zz = (pkgs._7zz.override { useUasm = true; }); };
     enableFishIntegration = true;
     enableBashIntegration = true;
   };
   # === yasi ===
-  
+  programs.lazygit = {
+    enable = true;
+    configFile = ./config/lazygit/config.yml;
+  };
+
   services.ssh-agent.enable = true;
+  services.byedpi.enable = true;
+
 }
