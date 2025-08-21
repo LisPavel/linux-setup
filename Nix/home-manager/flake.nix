@@ -28,6 +28,16 @@
       };
 
     in {
+      nix.extraOptions = ''
+        experimental-features = nix-command flakes
+        keep-outputs = true
+        keep-derivations = true
+      '';
+      nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+      };
       home-manager.useUserPackages = true;
       home-manager.useGlobalPkgs = true;
       homeConfigurations."pl" = home-manager.lib.homeManagerConfiguration {
