@@ -14,10 +14,10 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; # Please read the comment before changing.
 
   # Allow unfree packages
-  #   nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   # Enable fonts
   fonts.fontconfig.enable = true;
@@ -44,22 +44,17 @@
     obsidian
     vscodium
     neovim
-    # vial
     flameshot
     keepassxc
-    # zed-editor
-    # docker
     vivaldi
     fastfetch
 
     # --- nerdfonts ---
-    # (nerdfonts.override { fonts = [ "Meslo" "FiraCode" ]; })
     nerd-fonts.fira-code
     nerd-fonts.meslo-lg
     # === nerdfonts ===
 
     # --- lazyvim ---
-    # lazygit
     gcc
     ripgrep
     fd
@@ -71,13 +66,8 @@
     ast-grep
     # === lazyvim ===
 
-    # --- bypass Ru restictions ---
-    # === bypass Ru restictions ===
-    #
-
     bat
     zoxide
-
     nodejs_20
   ];
 
@@ -127,60 +117,6 @@
   };
   # === git ===
 
-  # --- ZSH ---
-  #  programs.zsh = {
-  #    enable = true;
-
-  #    enableAutosuggestions = true;
-  #    enableCompletion = true;
-  #    syntaxHighlighting = { enable = true; };
-
-  # needed for powerlevel10k theme
-  #    initExtraBeforeCompInit = ''
-  #      # p10k instant prompt
-  #      local P10K_INSTANT_PROMPT="${config.xdg.cacheHome}/p10k-instant-prompt-''${(%):-%n}.zsh"
-  #      [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
-  #    '';
-
-  #    plugins = with pkgs; [
-  #      {
-  #        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-  #        name = "powerlevel10k";
-  #        src = zsh-powerlevel10k;
-  #      }
-  #       {
-  #         file = "p10k.zsh";
-  #         name = "powerlevel10k-config";
-  #         src = "$HOME/Documents/System/zsh"; # Some directory containing your p10k.zsh file
-  #       }
-  #    ];
-
-  #    oh-my-zsh = {
-  #      enable = true;
-  #       plugins = [
-  #        "command-not-found"
-  #        "git"
-  #        "history"
-  #        "sudo"
-  #        "nvm"
-  #      ];
-  #    };
-
-  #    shellAliases = {
-  #        "use-node-shell" = "nix develop ~/Documents/System/Nix/DevShells --command zsh";
-  #        "use-node18-shell" = "nix develop ~/Documents/System/Nix/DevShells#node18 --command zsh";
-  #        "use-node14-shell" = "nix develop ~/Documents/System/Nix/DevShells#node14 --command zsh";
-  #        "protontricks" = "flatpak run com.github.Matoking.protontricks";
-  #        "protontricks-launch" = "flatpak run --command=protontricks-launch com.github.Matoking.protontricks";
-  #    };
-
-  #    initExtra = ''
-  #      POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-  #      source ~/Documents/System/zsh/p10k.zsh
-  #    '';
-  #  };
-  # === ZSH ===
-
   # --- FISH ---
   programs.fish = {
     enable = true;
@@ -209,18 +145,6 @@
         home-manager expire-generations "-15days" && nix-collect-garbage --delete-older-than 15d'';
       "sys-backup" = ''snapper -c root create -t single -d "before upgrade"'';
     };
-    functions = {
-      # yy = {
-      #   body = ''
-      #     set tmp (mktemp -t "yazi-cwd.XXXXXX")
-      #     yazi $argv --cwd-file="$tmp"
-      #     if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-      #       builtin cd -- "$cwd"
-      #     end
-      #     rm -f -- "$tmp"
-      #   '';
-      # };
-    };
   };
   # === FISH ===
 
@@ -232,13 +156,16 @@
     enableFishIntegration = true;
     enableBashIntegration = true;
   };
-  # === yasi ===
+
+  # === yazi ===
+  # --- lazygit ---
   programs.lazygit = {
     enable = true;
     configFile = ./config/lazygit/config.yml;
   };
+  # === lazygit ===
 
+  # +++ services +++
   services.ssh-agent.enable = true;
   services.byedpi.enable = true;
-
 }
