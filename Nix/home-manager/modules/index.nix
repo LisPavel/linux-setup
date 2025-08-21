@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./programs/lazygit.nix ./services/byedpi.nix ]; }
+{ ... }: { imports = [ ./programs/index.nix ./services/index.nix ]; }

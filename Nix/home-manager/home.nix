@@ -2,6 +2,7 @@
 
 {
   imports = [ ./modules/index.nix ];
+  xdg.autostart.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "pl";
@@ -45,7 +46,6 @@
     vscodium
     neovim
     flameshot
-    keepassxc
     vivaldi
     fastfetch
 
@@ -67,7 +67,6 @@
     # === lazyvim ===
 
     bat
-    zoxide
     nodejs_20
   ];
 
@@ -158,6 +157,7 @@
   };
 
   # === yazi ===
+
   # --- lazygit ---
   programs.lazygit = {
     enable = true;
@@ -165,7 +165,14 @@
   };
   # === lazygit ===
 
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+  };
+
   # +++ services +++
   services.ssh-agent.enable = true;
   services.byedpi.enable = true;
+  services.keepassxc.enable = true;
 }

@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./byedpi.nix ]; }
+{ ... }: { imports = [ ./byedpi.nix ./keepassxc.nix ]; }
