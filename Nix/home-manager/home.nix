@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./modules ./programs ./packages.nix ];
+  imports = [ ./modules ./programs ./packages.nix ./fonts.nix ];
   xdg.autostart.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -19,9 +19,6 @@
 
   # Allow unfree packages
   # nixpkgs.config.allowUnfree = true;
-
-  # Enable fonts
-  fonts.fontconfig.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

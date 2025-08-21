@@ -9,11 +9,6 @@
     bat
     nodejs_20
 
-    # --- nerdfonts ---
-    nerd-fonts.fira-code
-    nerd-fonts.meslo-lg
-    # === nerdfonts ===
-
     # --- lazyvim ---
     gcc
     ripgrep
