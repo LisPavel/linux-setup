@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./modules ./programs ./packages.nix ./fonts.nix ./services ];
+  imports =
+    [ ./modules ./programs ./packages.nix ./fonts.nix ./services ./flatpaks ];
   xdg.autostart.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
