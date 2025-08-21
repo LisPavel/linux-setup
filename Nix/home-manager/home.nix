@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./modules ];
+  imports = [ ./modules ./programs ];
   xdg.autostart.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -159,10 +159,6 @@
   # === yazi ===
 
   # --- lazygit ---
-  programs.lazygit = {
-    enable = true;
-    configFile = ./config/lazygit/config.yml;
-  };
   # === lazygit ===
 
   programs.zoxide = {
