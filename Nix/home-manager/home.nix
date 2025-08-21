@@ -58,7 +58,7 @@
     # === nerdfonts ===
 
     # --- lazyvim ---
-    lazygit
+    # lazygit
     gcc
     ripgrep
     fd
@@ -67,7 +67,17 @@
     viu
     chafa
     ueberzugpp
+    ast-grep
     # === lazyvim ===
+
+    # --- bypass Ru restictions ---
+    # === bypass Ru restictions ===
+    #
+
+    bat
+    zoxide
+
+    nodejs_20
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
