@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./modules ./programs ./packages.nix ./fonts.nix ];
+  imports = [ ./modules ./programs ./packages.nix ./fonts.nix ./services ];
   xdg.autostart.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -53,16 +53,4 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # +++ services +++
-  services.ssh-agent.enable = true;
-  services.byedpi.enable = true;
-  services.keepassxc.enable = true;
-  services.flatpak = {
-    enable = true;
-    remotes = [{
-      name = "flathub";
-      location = "https://flathub.org/repo/flathub.flatpakrepo";
-    }];
-    packages = [ "com.logseq.Logseq" ];
-  };
 }
