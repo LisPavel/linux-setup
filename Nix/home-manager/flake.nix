@@ -8,9 +8,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nix-flatpak, ... }:
     let
       system = "x86_64-linux";
 
@@ -28,6 +32,7 @@
       home-manager.useGlobalPkgs = true;
       homeConfigurations."pl" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        # extraSpecialArgs = { inherit nix-flatpak; };
         # pass extra args to home manager
         #         extraSpecialArgs = {
         #           inherit pkgs-dep;
@@ -35,7 +40,7 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [ nix-flatpak.homeManagerModules.nix-flatpak ./home.nix ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
