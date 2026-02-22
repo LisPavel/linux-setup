@@ -1,1 +1,5 @@
-{ ... }: { imports = [ ./lazygit.nix ]; }
+{ ... }: {
+  imports = [
+    # ./lazygit.nix
+  ];
+}

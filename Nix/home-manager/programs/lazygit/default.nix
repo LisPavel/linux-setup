@@ -1,6 +1,6 @@
 { ... }: {
   programs.lazygit = {
     enable = true;
-    configFile = ./config.yml;
+    settings = { gui.useHunkModeInStagingView = false; };
   };
 }

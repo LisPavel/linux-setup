@@ -20,5 +20,10 @@
     ueberzugpp
     ast-grep
     # === lazyvim ===
+
+    v2rayn
+    xray
+    sing-box
+    throne
   ];
 }
